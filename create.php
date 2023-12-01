@@ -4,10 +4,10 @@
 <head>
     <!--
         Marc Galvez
-        November 17, 2023
+        December 1, 2023
         Assignment 12 DBMS
         create.php
-        Registers user data and displays number of visits
+        create a user table
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
