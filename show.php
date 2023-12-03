@@ -53,16 +53,26 @@
                         </tbody>
                     </table>
                 <?php
-                    PutButton("create", "Create new table");
-                    PutButton("insert", "Insert data inside the table");
-                    PutButton("clear", "Clear the table");
-                    PutButton("drop", "Drop the table");
+
                 } else {
+                ?>
+                    <p>There is no data to display, please create a table or go to the Insert page.</p>
+                <?php
                 }
+
+                PutButton("create", "Create new table");
+                PutButton("insert", "Insert data inside the table");
+                PutButton("clear", "Clear the table");
+                PutButton("drop", "Drop the table");
                 ?>
             </div>
         </div>
-    <?php }
+    <?php
+
+    } else {
+        WinAlert("The table has not been created, Re-Directing to the Create page.");
+        redirect("create.php");
+    }
 
     ?>
 </body>
