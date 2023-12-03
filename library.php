@@ -122,7 +122,7 @@ session_start()
         // display buttons
 
 
-        print('<a title=" ' . $desc . '" class="row col-auto mt-2" href="' . $btnName . '.php"> <button class="btn btn-primary "> Page ' . ucfirst($btnName) . '</button> </a>');
+        print('<a title=" ' . $desc . '" class="row col-auto mt-2" href="' . $btnName . '.php"> <button class="btn btn-primary ">' . ucfirst($btnName) . '</button> </a>');
     }
 
     function PutMsg($fileName, $message = "The File has been successfully created")
