@@ -26,6 +26,7 @@
             // insert Mr. Smith's data into the user table
             $checkQuery = "SELECT * FROM " . $_SESSION["tbName"] . " WHERE username = '$newUsername'";
             $checkResult = $conn->query($checkQuery);
+
             if ($checkResult->num_rows == 0) {
                 $insertQuery = "INSERT INTO " . $_SESSION["tbName"] . " (username, pword)
                 VALUES ('$newUsername', '$newPassword')";
