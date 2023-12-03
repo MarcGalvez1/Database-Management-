@@ -44,20 +44,22 @@
     <div class="card mx-auto mt-5" style="width:25%">
 
         <?php
-        // sql to delete a record
-        $clearQuery = "DELETE FROM " . $_SESSION["tbName"] . " WHERE username='Mr. Smith'";
-        if (isset($_SESSION["tbName"])) {
-            if ($conn->query($clearQuery) === TRUE) {
+
+
+        if (isset($_SESSION["tbName"])) { // Prossess deletion of table data if table exists
+            // sql to delete a record
+            $clearQuery = "DELETE FROM " . $_SESSION["tbName"] . " WHERE username='Mr. Smith'";
+            if ($conn->query($clearQuery) === TRUE) { // Display success message if query is valid
         ?>
                 <h5 class="card-header text-center bg-info">Data deleted successfully</h5>
 
             <?php
-            } else {
+            } else { // Display error message if query is invalid
             ?>
                 <h5 class="card-header text-center bg-info">Error deleting data: <?php echo $conn->error; ?></h5>
             <?php
             }
-        } else {
+        } else { // Ask the user to create a table in the create page.
             ?>
             <h5 class="card-header text-center bg-info">The table has not been created, please register at the Create Page</h5>
         <?php

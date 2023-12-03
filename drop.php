@@ -43,20 +43,21 @@
     </nav>
     <div class="card mx-auto mt-5" style="width:25%" id="visit-container">
         <?php
-        if (isset($_SESSION["tbName"])) {
+        if (isset($_SESSION["tbName"])) { // Processes deletion of table if it exists
             $dropQuery = "DROP TABLE " . $_SESSION['tbName'];
-            if ($conn->query($dropQuery) === TRUE) {
+            if ($conn->query($dropQuery) === TRUE) { // Deletes table if query is valid
         ?>
                 <h5 class="card-header text-center bg-info">The <?php $_SESSION["tbName"]; ?> table has been dropped, please create a new table in the create page</h5>
             <?php
-            } else {
+            } else { // Displays error message if query is invalid
             ?>
                 <h5 class="card-header text-center bg-info">Error table could not be deleted. <?php $conn->error; ?></h5>
             <?php
             }
+            // Destroy the session
             session_unset();
             session_destroy();
-        } else {
+        } else { // Prompts user that there is no table to delete
             ?>
             <h5 class="card-header text-center bg-info">There is no table to delete, please create a new table.</h5>
         <?php

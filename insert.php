@@ -44,6 +44,7 @@
     <div class="card mx-auto mt-5" style="width:25%">
         <?php
         if (isset($_SESSION["tbName"])) {
+            // Checks if the user has created the table
             $newUsername = "Mr. Smith";
             $newPassword = "noword";
             // insert Mr. Smith's data into the user table
@@ -51,9 +52,11 @@
             $checkResult = $conn->query($checkQuery);
 
             if ($checkResult->num_rows == 0) {
+                // Inserts data into the table if it doesn't already exist
                 $insertQuery = "INSERT INTO " . $_SESSION["tbName"] . " (username, pword)
                 VALUES ('$newUsername', '$newPassword')";
                 if ($conn->query($insertQuery) === TRUE) {
+                    // Inserts data into table if query is valid
         ?>
                     <h5 class="card-header text-center bg-info">The default data has been inserted, Please go to these pages for any other actions.</h5>
                     <div class="card-body">
@@ -72,6 +75,7 @@
                 <?php
                 }
             } else {
+                // If the data already exists this shows up.
                 ?>
                 <h5 class="card-header text-center bg-info">The default data has been inserted, Please go to these pages for any other actions.</h5>
                 <div class="card-body">
@@ -85,6 +89,7 @@
         <?php
             }
         } else {
+            // if table doesn't exist redirect to create.php
             WinAlert("Please register yourself before doing any further actions, you will now be redirected to the create page.");
             redirect("create.php");
         }

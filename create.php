@@ -44,7 +44,9 @@
     </nav>
     <div class="card mx-auto mt-5" style="width:25%" id="create-container">
         <?php
+        // Creates table
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Creates table if it doesn't already exist and the user can create a new table anytime.
             // Sanitize table name 
             $tbName = Sanitization($_POST["usr-name"]);
             $_SESSION["tbName"] = $tbName;
@@ -56,6 +58,7 @@
                 primary key (username)
             )";
             if ($conn->query($createTable) === TRUE) {
+                // Confirms that the query is valid
         ?>
                 <h5 class="card-header text-center bg-info"><?php echo $tbName ?> table has been created</h5>
                 <div class="card-body">
@@ -68,13 +71,14 @@
                 </div>
             <?php
             } else {
+                // if query is not valid display error
             ?>
                 <h5 class="card-header text-center bg-info"><?php echo $tbName ?> ERROR creating table: <?php $conn->error; ?></h5>
                 <p class="card-body">The website is currently, down please come again later.</p>
             <?php
             }
             $conn->close();
-        } else {
+        } else { // Display form if user has yet to submit a form
             ?>
             <h5 class="card-header text-center bg-info">Create Table</h5>
             <form method='post' class='mx-2'>

@@ -41,14 +41,15 @@
             </div>
         </div>
     </nav>
-    <?php if (isset($_SESSION["tbName"])) { ?>
+    <?php if (isset($_SESSION["tbName"])) { //If table exists show data
+    ?>
         <div class="card mx-auto mt-5" style="width:25%">
             <h5 class="card-header text-center bg-info">Showing the data in <?php echo $_SESSION["tbName"]; ?> table.</h5>
             <div class="card-body">
                 <?php
                 $showQuery = "SELECT * FROM " . $_SESSION['tbName'];
                 $result = $conn->query($showQuery);
-                if ($result->num_rows > 0) {
+                if ($result->num_rows > 0) { // Display table if query is valid
                 ?>
 
                     <table class="table">
@@ -77,7 +78,7 @@
                     </table>
                 <?php
 
-                } else {
+                } else { // Display error if query is invalid.
                 ?>
                     <p>There is no data to display, please create a table or go to the Insert page.</p>
                 <?php
@@ -92,7 +93,7 @@
         </div>
     <?php
 
-    } else {
+    } else { // Redirect to create if table does not exist.
         WinAlert("The table has not been created, Re-Directing to the Create page.");
         redirect("create.php");
     }
