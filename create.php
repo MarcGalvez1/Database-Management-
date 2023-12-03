@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbName = "cpt238_assgn12dbms";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbName);
-?>
+
 
 <head>
     <!--
@@ -22,6 +15,7 @@ $conn = new mysqli($servername, $username, $password, $dbName);
     <title>Create</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <?php require("library.php") ?>
+    <?php require("dbconnect.php") ?>
 </head>
 
 <body class="bg-dark">
